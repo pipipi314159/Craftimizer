@@ -1,9 +1,9 @@
 {
     "Author": "Asriel",
-    "Name": "Craftimizer",
+    "Name": "Craftimizer (TW)",
     "Punchline": "Simulate crafts, create computer-assisted macros, and get mid-craft suggestions from the comfort of your own game!",
     "Description": "Allows you to generate macros and simulate all sorts of crafts without having to open another app. Open your crafting log to get started!",
-    "RepoUrl": "https://github.com/WorkingRobot/Craftimizer",
+    "RepoUrl": "https://github.com/pipipi314159/Craftimizer",
     "InternalName": "Craftimizer",
     "ApplicableVersion": "any",
     "Tags": [

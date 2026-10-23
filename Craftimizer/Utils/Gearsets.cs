@@ -128,8 +128,13 @@ public static unsafe class Gearsets
         return luminaItem.ItemUICategory.RowId == 62 && luminaItem.ClassJobUse.Value.ClassJobCategory.RowId == 33;
     }
 
-    public static bool IsSplendorousTool(GearsetItem item) =>
-        LuminaSheets.ItemSheetEnglish.GetRow(item.ItemId).Description.ToString().Contains("Increases to quality are 1.75 times higher than normal when material condition is Good.", StringComparison.Ordinal);
+    public static bool IsSplendorousTool(GearsetItem item)
+    {
+        if (LuminaSheets.ItemSheetEnglish is { } english)
+            return english.GetRow(item.ItemId).Description.ToString().Contains("Increases to quality are 1.75 times higher than normal when material condition is Good.", StringComparison.Ordinal);
+        // TW fallback: the localized description still contains the "1.75" multiplier
+        return LuminaSheets.ItemSheet.GetRow(item.ItemId).Description.ToString().Contains("1.75", StringComparison.Ordinal);
+    }
 
     // https://github.com/ffxiv-teamcraft/ffxiv-teamcraft/blob/24d0db2d9676f264edf53651b21005305267c84c/apps/client/src/app/modules/gearsets/materia.service.ts#L265
     private static int CalculateParamCap(Item item, uint paramId)
